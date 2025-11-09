@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started: OutPerform Tech Offer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for a dark, engaging theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Animated Pinkish Background */
+            background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff9a8b, #ff6a88, #ff99ac);
+            background-size: 400% 400%;
+            animation: gradientAnimation 20s ease infinite;
+            color: #d1d5db;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; 
+            position: relative; 
+        }
+
+        /* Enhanced Keyframe animation for the background gradient */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- Particle Effect --- */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.4)"/></svg>') repeat;
+            background-size: 10px 10px;
+            animation: particleFlow 60s linear infinite;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes particleFlow {
+            0% { background-position: 0 0; }
+            100% { background-position: 1000px 1000px; }
+        }
+        
+        /* --- Form Container (Soft Glassmorphism) --- */
+        .creative-form-container {
+            backdrop-filter: blur(10px);
+            background-color: rgba(31, 41, 55, 0.4);
+            border: 1px solid rgba(156, 163, 175, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transform: scale(0.9);
+            opacity: 0;
+            animation: fadeInScale 0.8s ease-out forwards;
+            animation-delay: 0.3s; 
+            z-index: 1;
+            position: relative;
+        }
+
+        /* --- Input Fields & Button (existing styles maintained) --- */
+        .creative-input {
+            background-color: rgba(55, 65, 81, 0.6);
+            border: 1px solid rgba(75, 85, 99, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .creative-input:hover {
+            border-color: #f59e0b; 
+            background-color: rgba(55, 65, 81, 0.8);
+        }
+
+        input:focus {
+            border-color: #f59e0b !important;
+            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.4) !important; 
+        }
+
+        .creative-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.5); /* Initial subtle glow */
+        }
+        .creative-button:hover {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.9);
+            transform: scale(1.02);
+        }
+
+        /* --- Entry Animations --- */
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .animated-item {
+            opacity: 0;
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+        /* Staggered delays - Adjusted for new description block */
+        .animated-item:nth-child(1) { animation-delay: 0.4s; } /* Logo/Title Block */
+        .animated-item:nth-child(2) { animation-delay: 0.6s; } /* Mobile Number */
+        .animated-item:nth-child(3) { animation-delay: 0.8s; } /* UPI ID */
+        .animated-item:nth-child(4) { animation-delay: 1.0s; } /* Button */
+        .animated-item:nth-child(5) { animation-delay: 1.2s; } /* Step-by-Step Guide */
+        .animated-item:nth-child(6) { animation-delay: 1.4s; } /* Loading message */
+        .animated-item:nth-child(7) { animation-delay: 1.6s; } /* How to Avail */
+
+        /* --- Logo & Campaign Styling --- */
+        .logo-symbol {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 0.5rem;
+            position: relative;
+            border-radius: 50%;
+            display: inline-block;
+            background: radial-gradient(circle, #f59e0b 0%, rgba(245, 158, 11, 0) 70%);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.8);
+            overflow: hidden;
+        }
+
+        /* Animated Scanne Line inside the logo */
+        .logo-symbol::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #10b981, transparent);
+            transform: translateY(0%);
+            animation: scanLine 2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        }
+
+        @keyframes scanLine {
+            0% { transform: translateY(0%); opacity: 0.5; }
+            50% { transform: translateY(1000%); opacity: 1; }
+            100% { transform: translateY(0%); opacity: 0.5; }
+        }
+
+        .brand-text {
+            line-height: 1;
+        }
+
+        .campaign-word {
+            display: block;
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 500;
+            color: #10b981; /* Secondary color */
+            margin-top: 0.25rem;
+            letter-spacing: 0.1em; /* Subtle spacing for campaign word */
+            opacity: 0.8;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#f59e0b', 
+                        'secondary': '#10b981', 
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="w-11/12 max-w-md p-6 creative-form-container rounded-xl">
+        <header class="text-center mb-8 animated-item">
+            
+            <div class="logo-symbol mx-auto"></div>
+
+            <div class="brand-text">
+                <h1 class="text-3xl font-extrabold text-white">
+                    <span class="text-primary">OutPerform</span> Tech
+                </h1>
+                <span class="campaign-word">CAMPAIGN</span>
+            </div>
+            
+        </header>
+
+        <main>
+            <form id="landing-form" action="/submit-proxy" method="POST" class="space-y-4">
+                <div class="relative animated-item">
+                    <label for="mobile_number" class="block text-sm font-medium text-gray-300 mb-1">Mobile Number</label>
+                    <input type="text" id="mobile_number" name="mobile_number" placeholder="e.g., 9876543210" required
+                        class="w-full p-3 creative-input rounded-lg text-white placeholder-gray-400">
+                    <p id="mobile-error" class="text-red-400 text-xs mt-1 hidden">Please enter a valid 10-digit mobile number.</p>
+                </div>
+
+                <div class="relative animated-item">
+                    <label for="upi_id" class="block text-sm font-medium text-gray-300 mb-1">UPI ID</label>
+                    <input type="text" id="upi_id" name="upi_id" placeholder="e.g., yourname@bank" required
+                        class="w-full p-3 creative-input rounded-lg text-white placeholder-gray-400">
+                    <p id="upi-error" class="text-red-400 text-xs mt-1 hidden">Please enter a valid UPI ID (e.g., name@bank).</p>
+                </div>
+
+                <button type="submit" id="submit-button"
+                    class="w-full py-3 px-4 bg-primary text-gray-900 font-bold rounded-lg creative-button"
+                    aria-label="Submit details and proceed">
+                    Submit & Go to Tasks
+                </button>
+            </form>
+
+            <div id="loading-message" class="hidden text-center p-4 mt-6 bg-gray-700 rounded-lg animated-item">
+                <div class="flex items-center justify-center space-x-2">
+                    <svg class="animate-spin h-5 w-5 text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span class="text-gray-200 font-medium">Processing... Please wait for redirection.</span>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-4 border-t border-gray-700 animated-item">
+                <h3 class="text-md font-bold text-primary mb-3 text-center uppercase tracking-wider">⚡ Simple Steps to Instant Cashback ⚡</h3>
+                <ul class="text-sm space-y-2 text-gray-300 list-none p-0">
+                    <li class="flex items-start">
+                        <span class="text-secondary mr-2 font-extrabold flex-shrink-0">1.</span>
+                        <p>Enter your **Mobile & UPI ID** and press **Submit** above.</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-secondary mr-2 font-extrabold flex-shrink-0">2.</span>
+                        <p>On the next page, **Fill Name, basic details** etc. & **Proceed**.</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-secondary mr-2 font-extrabold flex-shrink-0">3.</span>
+                        <p>**Done!** You will see your eligible **Credit Limit**.</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-secondary mr-2 font-extrabold flex-shrink-0">4.</span>
+                        <p>Go to the next page and **wait 2 minutes** in the payment page. **Just wait, no need to pay.**</p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-secondary mr-2 font-extrabold flex-shrink-0">5.</span>
+                        <p>**Done!** You will get **Instant Cashback** in 24 hours.</p>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="mt-4 pt-4 border-t border-gray-700 text-center animated-item" style="animation-delay: 1.6s;">
+                <h3 class="text-sm font-semibold text-gray-300 mb-2 uppercase tracking-wider">Additional Offer Details</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">
+                    Your submission guarantees your entry into the campaign. You will be immediately redirected to the tasks page. **Ensure your UPI ID is correct for direct payment.**
+                </p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const form = document.getElementById('landing-form');
+        const mobileInput = document.getElementById('mobile_number');
+        const upiInput = document.getElementById('upi_id');
+        const submitButton = document.getElementById('submit-button');
+        const loadingMessage = document.getElementById('loading-message');
+        const mobileError = document.getElementById('mobile-error');
+        const upiError = document.getElementById('upi-error');
+
+        const validateMobile = (mobile) => /^\d{10}$/.test(mobile);
+        const validateUpi = (upi) => /^[a-zA-Z0-9.\-]+@[a-zA-Z0-9]+$/.test(upi);
+
+        form.addEventListener('submit', function(event) {
+            
+            const mobile = mobileInput.value.trim();
+            const upi = upiInput.value.trim();
+
+            let isValid = true;
+            
+            mobileError.classList.add('hidden');
+            if (!validateMobile(mobile)) {
+                mobileError.classList.remove('hidden');
+                mobileInput.focus();
+                isValid = false;
+            }
+
+            upiError.classList.add('hidden');
+            if (!validateUpi(upi)) {
+                upiError.classList.remove('hidden');
+                if (isValid) upiInput.focus();
+                isValid = false;
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            loadingMessage.classList.remove('hidden');
+            
+        });
+
+        mobileInput.addEventListener('blur', () => {
+            if (mobileInput.value.trim() && !validateMobile(mobileInput.value.trim())) {
+                mobileInput.classList.add('border-red-500');
+            } else {
+                mobileInput.classList.remove('border-red-500');
+            }
+        });
+
+        upiInput.addEventListener('blur', () => {
+            if (upiInput.value.trim() && !validateUpi(upiInput.value.trim())) {
+                upiInput.classList.add('border-red-500');
+            } else {
+                upiInput.classList.remove('border-red-500');
+            }
+        });
+    </script>
+</body>
+</html>
