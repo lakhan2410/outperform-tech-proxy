@@ -5,13 +5,13 @@ from flask import Flask, request, jsonify, send_file
 
 # --- CONFIGURATION (CRITICAL VALUES) ---
 # The URL to which the user is redirected after a successful POST attempt.
-TASK_PAGE_URL = "https://www.bajajfinserv.in/webform/emicard/login"
+TASK_PAGE_URL = "https://customer.credilio.in/v2/sbm-credilio-rupay-credit-card-on-upi?advisor_code=CRD0183543&utm_org_code=ORG03477&utm_source=Affiliate&utm_campaign=RechargeFox_5wij8mfkla220saf_331464__D-21556697-1762673335-34G70G153G255-AFLWE8130_"
 
 # Your unique affiliate ID found in the URL /camp/rihcy8kq
-AFFILIATE_KEY = "rihcy8kq"
+AFFILIATE_KEY = "ro6kn0i0"
 
 # The complex security token found in the Livewire snapshot. This MAY need updating if RechargeFox changes the page frequently.
-LIVEWIRE_CHECKSUM = "bbebb48657033c7d9e0f6f65f5734ac69c15cd16ffa3c1d97abb6b7d1fe0b85b"
+LIVEWIRE_CHECKSUM = "e6d7681b9182ea528cabf2533741901a76d0923968d80ed54f4caa215dee18e5"
 
 # The target URL for the hidden POST submission (rechargefox campaign link)
 RECHARGEFOX_URL = f"https://rechargefox.com/camp/{AFFILIATE_KEY}"
